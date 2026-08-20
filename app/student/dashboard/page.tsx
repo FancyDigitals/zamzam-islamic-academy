@@ -206,15 +206,15 @@ export default async function StudentDashboardPage() {
                 </p>
                 <h1
                   className="text-2xl sm:text-3xl font-extrabold mb-1"
-                  style={{ letterSpacing: "-0.03em", lineHeight: 1.1 }}
+                  style={{ color: "white", letterSpacing: "-0.03em", lineHeight: 1.1 }}
                 >
                   {user?.firstName || session.firstName}{" "}
                   {user?.lastName || session.lastName}
                 </h1>
                 {user?.arabicName && (
                   <p
-                    className="arabic-text text-lg"
-                    style={{ color: "hsl(38, 55%, 65%)" }}
+                    className="arabic-text text-lg font-bold"
+                    style={{ color: "hsl(38, 55%, 65%)", fontWeight: 700 }}
                   >
                     {user.arabicName}
                   </p>
@@ -402,8 +402,8 @@ export default async function StudentDashboardPage() {
                 </p>
                 {user?.arabicName && (
                   <p
-                    className="arabic-text font-semibold mt-0.5"
-                    style={{ color: "hsl(35, 65%, 32%)" }}
+                    className="arabic-text font-bold mt-0.5"
+                    style={{ color: "hsl(35, 65%, 32%)", fontWeight: 700 }}
                   >
                     {user.arabicName}
                   </p>
