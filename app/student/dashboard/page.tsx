@@ -18,9 +18,11 @@ async function getUser() {
     where: eq(students.userId, session.userId),
   });
 
+  // Load full name fields explicitly
   const user = await db.query.users.findFirst({
     where: eq(users.id, session.userId),
     columns: {
+      id: true,
       firstName: true,
       lastName: true,
       arabicName: true,
@@ -54,6 +56,13 @@ export default async function StudentDashboardPage() {
   }
 
   const { session, student, user, programme, level } = data;
+
+  const firstName = user?.firstName || session.firstName || "";
+  const lastName = user?.lastName || session.lastName || "";
+  const arabicName =
+    user?.arabicName && user.arabicName.trim().length > 0
+      ? user.arabicName.trim()
+      : null;
 
   const sidebarLinks = [
     {
@@ -92,9 +101,9 @@ export default async function StudentDashboardPage() {
         subtitle="Student Portal"
         arabicSubtitle="بوابة الطالب"
         user={{
-          firstName: user?.firstName || session.firstName,
-          lastName: user?.lastName || session.lastName,
-          arabicName: user?.arabicName,
+          firstName,
+          lastName,
+          arabicName,
           profilePhoto: user?.profilePhoto,
         }}
       />
@@ -120,9 +129,7 @@ export default async function StudentDashboardPage() {
                     background: item.active
                       ? "hsl(38, 45%, 94%)"
                       : "transparent",
-                    color: item.active
-                      ? "hsl(0, 0%, 8%)"
-                      : "hsl(0, 0%, 40%)",
+                    color: item.active ? "hsl(0, 0%, 8%)" : "hsl(0, 0%, 40%)",
                     fontWeight: item.active ? 700 : 500,
                     borderLeft: item.active
                       ? "3px solid hsl(38, 60%, 45%)"
@@ -132,9 +139,7 @@ export default async function StudentDashboardPage() {
                   <Icon
                     className="w-4 h-4 shrink-0"
                     style={{
-                      color: item.active
-                        ? "hsl(38, 60%, 45%)"
-                        : "inherit",
+                      color: item.active ? "hsl(38, 60%, 45%)" : "inherit",
                     }}
                   />
                   <div>
@@ -167,7 +172,7 @@ export default async function StudentDashboardPage() {
         <main className="flex-1 p-4 sm:p-8 max-w-5xl pb-24 lg:pb-8">
           {/* Welcome banner */}
           <div
-            className="rounded-xl p-6 sm:p-8 mb-6 text-white relative overflow-hidden"
+            className="rounded-xl p-6 sm:p-8 mb-6 relative overflow-hidden"
             style={{
               background:
                 "linear-gradient(135deg, hsl(0,0%,8%) 0%, hsl(0,0%,15%) 60%, hsl(35,65%,22%) 100%)",
@@ -186,16 +191,17 @@ export default async function StudentDashboardPage() {
                   className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold hidden sm:flex shrink-0"
                   style={{
                     background: "rgba(255,255,255,0.12)",
-                    color: "hsl(38, 60%, 55%)",
+                    color: "#ffffff",
                   }}
                 >
-                  {session.firstName.charAt(0)}
-                  {session.lastName.charAt(0)}
+                  {firstName.charAt(0)}
+                  {lastName.charAt(0)}
                 </div>
               )}
-              <div>
+
+              <div className="min-w-0">
                 <p
-                  className="text-xs uppercase mb-1"
+                  className="text-xs uppercase mb-2"
                   style={{
                     color: "hsl(38, 60%, 55%)",
                     letterSpacing: "0.15em",
@@ -204,30 +210,41 @@ export default async function StudentDashboardPage() {
                 >
                   السلام عليكم — Assalamu Alaikum
                 </p>
+
+                {/* ENGLISH NAME — pure white */}
                 <h1
-                  className="text-2xl sm:text-3xl font-extrabold mb-1"
-                  style={{ color: "white", letterSpacing: "-0.03em", lineHeight: 1.1 }}
+                  className="text-2xl sm:text-3xl font-extrabold mb-2"
+                  style={{
+                    color: "#ffffff",
+                    letterSpacing: "-0.03em",
+                    lineHeight: 1.15,
+                  }}
                 >
-                  {user?.firstName || session.firstName}{" "}
-                  {user?.lastName || session.lastName}
+                  {firstName} {lastName}
                 </h1>
-                {user?.arabicName && (
-                  <p
-                    className="arabic-text text-lg font-bold"
-                    style={{ color: "hsl(38, 55%, 65%)", fontWeight: 700 }}
-                  >
-                    {user.arabicName}
-                  </p>
-                )}
+
+                {/* ARABIC NAME — always shown, bold */}
+                <p
+                  className="arabic-text text-xl sm:text-2xl"
+                  style={{
+                    color: "#ffffff",
+                    fontWeight: 700,
+                    lineHeight: 1.6,
+                    marginTop: "4px",
+                  }}
+                >
+                  {arabicName || "الاسم العربي غير متوفر"}
+                </p>
               </div>
             </div>
+
             <div className="flex flex-wrap gap-2 mt-5 relative z-10">
               {student?.studentId && (
                 <span
                   className="px-3 py-1 rounded-md text-xs font-mono font-bold"
                   style={{
-                    background: "rgba(255,255,255,0.12)",
-                    color: "hsl(40, 40%, 97%)",
+                    background: "rgba(255,255,255,0.14)",
+                    color: "#ffffff",
                   }}
                 >
                   ID: {student.studentId}
@@ -397,17 +414,17 @@ export default async function StudentDashboardPage() {
                   Full Name / الاسم الكامل
                 </p>
                 <p className="font-semibold text-gray-900">
-                  {user?.firstName || session.firstName}{" "}
-                  {user?.lastName || session.lastName}
+                  {firstName} {lastName}
                 </p>
-                {user?.arabicName && (
-                  <p
-                    className="arabic-text font-bold mt-0.5"
-                    style={{ color: "hsl(35, 65%, 32%)", fontWeight: 700 }}
-                  >
-                    {user.arabicName}
-                  </p>
-                )}
+                <p
+                  className="arabic-text mt-1 text-base"
+                  style={{
+                    color: "hsl(35, 65%, 28%)",
+                    fontWeight: 700,
+                  }}
+                >
+                  {arabicName || "الاسم العربي غير متوفر"}
+                </p>
               </div>
               <div>
                 <p
@@ -440,7 +457,9 @@ export default async function StudentDashboardPage() {
                 </p>
                 <p className="font-semibold text-gray-900">
                   {programme
-                    ? `${programme.name}${programme.arabicName ? ` · ${programme.arabicName}` : ""}`
+                    ? `${programme.name}${
+                        programme.arabicName ? ` · ${programme.arabicName}` : ""
+                      }`
                     : "Not assigned / لم يتم التحديد"}
                 </p>
               </div>
@@ -453,7 +472,9 @@ export default async function StudentDashboardPage() {
                 </p>
                 <p className="font-semibold text-gray-900">
                   {level
-                    ? `${level.name}${level.arabicName ? ` · ${level.arabicName}` : ""}`
+                    ? `${level.name}${
+                        level.arabicName ? ` · ${level.arabicName}` : ""
+                      }`
                     : "Not assigned / لم يتم التحديد"}
                 </p>
               </div>
