@@ -11,6 +11,11 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    const clientIp =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      request.headers.get("x-real-ip") ??
+      undefined;
+
     // Validate input
     const validation = loginSchema.safeParse(body);
     if (!validation.success) {
@@ -59,7 +64,7 @@ export async function POST(request: NextRequest) {
         userRole: user.role,
         action: "login_failed",
         resourceType: "auth",
-        ipAddress: request.ip,
+        ipAddress: clientIp,
         userAgent: request.headers.get("user-agent") ?? undefined,
         details: "Invalid password attempt",
       });
@@ -91,7 +96,7 @@ export async function POST(request: NextRequest) {
       userRole: user.role,
       action: "login_success",
       resourceType: "auth",
-      ipAddress: request.ip,
+      ipAddress: clientIp,
       userAgent: request.headers.get("user-agent") ?? undefined,
     });
 

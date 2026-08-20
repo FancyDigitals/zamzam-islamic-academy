@@ -89,7 +89,7 @@ export default async function AdminAdmissionDetailPage({ params }: { params: Pro
                 </div>
                 <span
                   className="text-xs font-bold px-4 py-1.5 rounded"
-                  style={{ bg: sc.bg, color: sc.color, textTransform: "uppercase" }}
+                  style={{ backgroundColor: sc.bg, color: sc.color, textTransform: "uppercase" }}
                 >
                   {sc.label} • {sc.labelAr}
                 </span>

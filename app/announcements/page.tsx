@@ -19,8 +19,7 @@ export default async function AdminAnnouncementsPage() {
     .select({
       id: announcements.id,
       title: announcements.title,
-      titleArabic: announcements.titleArabic,
-      target: announcements.target,
+target: announcements.target,
       isPublished: announcements.isPublished,
       publishedAt: announcements.publishedAt,
       createdAt: announcements.createdAt,
@@ -141,14 +140,6 @@ export default async function AdminAnnouncementsPage() {
                       >
                         {a.title}
                       </h3>
-                      {a.titleArabic && (
-                        <p
-                          className="arabic-text text-sm mt-0.5 truncate"
-                          style={{ color: "hsl(35, 65%, 32%)" }}
-                        >
-                          {a.titleArabic}
-                        </p>
-                      )}
 
                       <p
                         className="text-xs mt-2"

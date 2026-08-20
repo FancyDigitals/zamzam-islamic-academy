@@ -2,27 +2,12 @@
 
 import Link from "next/link";
 import { MapPin, Mail, Phone, ArrowRight } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 export function PublicFooter() {
   const year = new Date().getFullYear();
-  const pathname = usePathname();
-
-  if (
-    pathname?.startsWith("/admin") ||
-    pathname?.startsWith("/student") ||
-    pathname === "/login" ||
-    pathname === "/signup"
-  ) {
-    return null;
-  }
 
   return (
     <footer style={{ background: "hsl(0, 0%, 6%)", color: "hsl(40, 20%, 75%)" }}>
-
-      {/* ═══════════════════════════════════════════
-          GOLD ACCENT LINE
-          ═══════════════════════════════════════════ */}
       <div
         className="h-[2px] w-full"
         style={{
@@ -31,16 +16,9 @@ export function PublicFooter() {
         }}
       />
 
-      {/* ═══════════════════════════════════════════
-          MAIN FOOTER
-          ═══════════════════════════════════════════ */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
-        {/* ─── BRAND BLOCK ─── */}
         <div className="mb-12 pb-10" style={{ borderBottom: "1px solid hsl(0, 0%, 14%)" }}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-
-            {/* Logo + wordmark */}
             <div className="lg:col-span-2">
               <div className="flex items-start gap-4 mb-5">
                 <img
@@ -100,7 +78,6 @@ export function PublicFooter() {
               </p>
             </div>
 
-            {/* CTA card */}
             <div
               className="rounded-lg p-6"
               style={{
@@ -171,10 +148,7 @@ export function PublicFooter() {
           </div>
         </div>
 
-        {/* ─── LINK COLUMNS ─── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10 mb-12">
-
-          {/* Programmes */}
           <div>
             <h4
               className="text-xs uppercase mb-4"
@@ -216,7 +190,6 @@ export function PublicFooter() {
             </ul>
           </div>
 
-          {/* Academy */}
           <div>
             <h4
               className="text-xs uppercase mb-4"
@@ -232,7 +205,7 @@ export function PublicFooter() {
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Faculty", href: "/faculty" },
-                { name: "Resources", href: "/resources" },
+                { name: "Digital Library", href: "/resources" },
                 { name: "Events", href: "/events" },
               ].map((item) => (
                 <li key={item.name}>
@@ -257,7 +230,6 @@ export function PublicFooter() {
             </ul>
           </div>
 
-          {/* Student */}
           <div>
             <h4
               className="text-xs uppercase mb-4"
@@ -298,7 +270,6 @@ export function PublicFooter() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4
               className="text-xs uppercase mb-4"
@@ -368,7 +339,6 @@ export function PublicFooter() {
           </div>
         </div>
 
-        {/* ─── PROPHETIC QUOTE ─── */}
         <div
           className="text-center py-8 px-6 mb-10 rounded-lg"
           style={{
@@ -408,7 +378,6 @@ export function PublicFooter() {
           </p>
         </div>
 
-        {/* ─── DIVIDER ─── */}
         <div
           className="h-px mb-6"
           style={{
@@ -417,7 +386,6 @@ export function PublicFooter() {
           }}
         />
 
-        {/* ─── BOTTOM BAR ─── */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p
             className="text-xs text-center md:text-left"

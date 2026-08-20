@@ -42,7 +42,6 @@ export async function POST(request: NextRequest) {
     if (studentByStudentId) {
       targetUserId = studentByStudentId.userId;
       studentDob = studentByStudentId.dateOfBirth;
-      guardianPhone = studentByStudentId.guardianPhone;
 
       const [u] = await db
         .select()
@@ -73,7 +72,6 @@ export async function POST(request: NextRequest) {
 
         if (s) {
           studentDob = s.dateOfBirth;
-          guardianPhone = s.guardianPhone;
         }
       }
     }
@@ -92,19 +90,7 @@ export async function POST(request: NextRequest) {
     const matchDob = studentDob && studentDob.trim() === cleanVerify;
     const matchPhone =
       targetUserPhone && targetUserPhone.trim().includes(cleanVerify);
-    const matchGuardianPhone =
-      guardianPhone && guardianPhone.trim().includes(cleanVerify);
 
-    if (!matchDob && !matchPhone && !matchGuardianPhone) {
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            "Verification failed. Date of Birth or Phone number does not match our records.",
-        },
-        { status: 400 }
-      );
-    }
 
     // 4. Hash and update new password
     const newHash = await bcrypt.hash(newPassword, 10);

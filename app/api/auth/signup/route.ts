@@ -303,7 +303,8 @@ export async function POST(request: NextRequest) {
     const passwordHash = await hashPassword(password);
 
     // Auto-generate Arabic name
-    const generatedArabicName = generateArabicFullName(firstName, lastName, arabicName);
+    const generatedArabicName =
+  arabicName?.trim() || generateArabicFullName(firstName, lastName);
 
     const [newUser] = await db
       .insert(users)

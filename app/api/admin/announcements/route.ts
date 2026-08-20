@@ -10,14 +10,12 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const {
-      title,
-      titleArabic,
-      content,
-      contentArabic,
-      target,
-      targetId,
-      isPublished,
-    } = body;
+  title,
+  content,
+  target,
+  targetId,
+  isPublished,
+} = body;
 
     if (!title || !content || !target) {
       return NextResponse.json(
@@ -47,16 +45,13 @@ export async function POST(request: NextRequest) {
     const [created] = await db
       .insert(announcements)
       .values({
-        title,
-        titleArabic: titleArabic || null,
-        content,
-        contentArabic: contentArabic || null,
-        target,
-        targetId: targetId || null,
-        isPublished: !!isPublished,
-        publishedAt: isPublished ? new Date() : null,
-        createdBy: session.userId,
-      })
+  title,
+  content,
+  target,
+  isPublished: !!isPublished,
+  publishedAt: isPublished ? new Date() : null,
+  createdBy: session.userId,
+})
       .returning();
 
     return NextResponse.json({ success: true, announcement: created });

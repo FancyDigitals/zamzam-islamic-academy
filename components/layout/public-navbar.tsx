@@ -10,7 +10,9 @@ const navLinks = [
   { name: "About", arabic: "من نحن", href: "/about" },
   { name: "Programmes", arabic: "البرامج", href: "/programmes" },
   { name: "Admissions", arabic: "القبول", href: "/admissions" },
+  { name: "Faculty", arabic: "المعلمون", href: "/faculty" },
   { name: "Library", arabic: "المكتبة", href: "/resources" },
+  { name: "Events", arabic: "الفعاليات", href: "/events" },
   { name: "Contact", arabic: "اتصل بنا", href: "/contact" },
 ];
 

@@ -22,8 +22,8 @@ export default async function StudentAnnouncementsPage() {
   const [student] = await db
     .select({
       id: students.id,
-      programmeId: students.programmeId,
-      levelId: students.levelId,
+      programmeId: students.currentProgrammeId,
+      levelId: students.currentLevelId,
     })
     .from(students)
     .where(eq(students.userId, session.userId))
@@ -58,7 +58,7 @@ export default async function StudentAnnouncementsPage() {
       filters.push(
         and(
           eq(announcements.target, "programme"),
-          eq(announcements.targetId, student.programmeId)
+          eq(announcements.targetProgrammeId, student.programmeId)
         )!
       );
     }
@@ -67,7 +67,7 @@ export default async function StudentAnnouncementsPage() {
       filters.push(
         and(
           eq(announcements.target, "level"),
-          eq(announcements.targetId, student.levelId)
+          eq(announcements.targetLevelId, student.levelId)
         )!
       );
     }
@@ -76,18 +76,16 @@ export default async function StudentAnnouncementsPage() {
       filters.push(
         and(
           eq(announcements.target, "class"),
-          inArray(announcements.targetId, classIds)
+          inArray(announcements.targetClassId, classIds)
         )!
       );
     }
 
-    list = await db
+    const queryResults = await db
       .select({
         id: announcements.id,
         title: announcements.title,
-        titleArabic: announcements.titleArabic,
         content: announcements.content,
-        contentArabic: announcements.contentArabic,
         target: announcements.target,
         publishedAt: announcements.publishedAt,
       })
@@ -96,6 +94,16 @@ export default async function StudentAnnouncementsPage() {
         and(eq(announcements.isPublished, true), or(...filters))
       )
       .orderBy(desc(announcements.publishedAt));
+
+    list = queryResults.map((item) => ({
+      id: item.id,
+      title: item.title,
+      titleArabic: null,
+      content: item.content,
+      contentArabic: null,
+      target: item.target,
+      publishedAt: item.publishedAt,
+    }));
   }
 
   return (

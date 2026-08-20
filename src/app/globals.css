@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  /* ═══════════════════════════════════════════════════════════
+     ZAMZAM ISLAMIC ACADEMY — Brand Colors
+     Editorial Islamic Prestige — Cream + Black + Gold
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Core neutrals */
+  --color-ink: hsl(0, 0%, 8%);
+  --color-ink-soft: hsl(0, 0%, 18%);
+  --color-ink-muted: hsl(0, 0%, 40%);
+  --color-ink-faint: hsl(0, 0%, 60%);
+
+  /* Cream / paper */
+  --color-paper: hsl(40, 40%, 97%);
+  --color-cream: hsl(38, 45%, 94%);
+  --color-cream-warm: hsl(36, 50%, 90%);
+  --color-parchment: hsl(35, 35%, 88%);
+
+  /* Gold */
+  --color-gold: hsl(38, 60%, 45%);
+  --color-gold-deep: hsl(35, 65%, 32%);
+  --color-gold-soft: hsl(40, 55%, 65%);
+  --color-gold-glow: hsl(42, 75%, 88%);
+
+  /* Borders */
+  --color-line: hsl(35, 20%, 82%);
+  --color-line-soft: hsl(35, 25%, 88%);
+
+  /* Status */
+  --color-success: hsl(155, 40%, 32%);
+  --color-success-bg: hsl(155, 30%, 92%);
+  --color-warning: hsl(35, 75%, 42%);
+  --color-warning-bg: hsl(40, 70%, 92%);
+  --color-danger: hsl(0, 60%, 42%);
+  --color-danger-bg: hsl(0, 50%, 95%);
+  --color-info: hsl(215, 45%, 40%);
+  --color-info-bg: hsl(215, 40%, 94%);
+
+  /* Shadcn compat */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-paper);
+  --color-secondary: var(--color-cream);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-cream);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-accent: var(--color-gold);
+  --color-accent-foreground: hsl(0, 0%, 100%);
+  --color-destructive: var(--color-danger);
+  --color-destructive-foreground: hsl(0, 0%, 100%);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-gold);
+
+  --radius: 0.5rem;
+
+  /* Font family */
+  --font-sans: var(--font-poppins), system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-line);
+  }
+
+  html {
+    background-color: var(--color-paper);
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink-soft);
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+
+  /* ─── Typography — Tight & Editorial ────────────────────── */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--color-ink);
+  }
+
+  h1 { letter-spacing: -0.04em; line-height: 1.05; }
+  h2 { letter-spacing: -0.035em; line-height: 1.1; }
+  h3 { letter-spacing: -0.03em; line-height: 1.15; }
+  h4, h5, h6 { letter-spacing: -0.02em; line-height: 1.2; }
+
+  p {
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+  }
+
+  /* Arabic text */
+  .arabic-text {
+    direction: rtl;
+    font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", serif;
+    line-height: 1.8;
+    display: block;
+    letter-spacing: 0;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  .quran-text {
+    font-family: "Scheherazade New", "Traditional Arabic", serif;
+    font-size: 1.4rem;
+    line-height: 2.5;
+    direction: rtl;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(40, 40%, 95%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 60%);
+    border-radius: 9999px;
+  }
+
+  /* Selection */
+  ::selection {
+    background: hsl(38, 60%, 45%);
+    color: hsl(0, 0%, 100%);
+  }
+}
+
+@layer utilities {
+
+  /* ─── Text tightening classes ───────────────────────────── */
+  .tracking-tightest {
+    letter-spacing: -0.05em;
+  }
+
+  .tracking-tighter-custom {
+    letter-spacing: -0.04em;
+  }
+
+  .leading-tightest {
+    line-height: 1.02;
+  }
+
+  /* ─── Text treatments ───────────────────────────────────── */
+  .text-gold {
+    color: hsl(38, 60%, 45%);
+  }
+
+  .text-gold-deep {
+    color: hsl(35, 65%, 32%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      hsl(38, 60%, 50%) 0%,
+      hsl(35, 65%, 35%) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── Card / surface ────────────────────────────────────── */
+  .paper-card {
+    background: hsl(0, 0%, 100%);
+    border: 1px solid hsl(35, 20%, 85%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .glass-cream {
+    background: rgba(250, 245, 235, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(35, 20%, 85%);
+  }
+
+    /* ─── Hero background layers ───────────────────────────── */
+  .hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("/pattern.svg");
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    z-index: 1;
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      hsla(40, 40%, 97%, 0.75) 0%,
+      hsla(38, 45%, 94%, 0.88) 100%
+    );
+    z-index: 2;
+  }
+}

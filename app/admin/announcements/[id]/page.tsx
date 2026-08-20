@@ -35,6 +35,12 @@ export default async function EditAnnouncementPage({
     db.select({ id: classes.id, name: classes.name }).from(classes),
   ]);
 
+  const targetId =
+    announcement.targetProgrammeId ||
+    announcement.targetLevelId ||
+    announcement.targetClassId ||
+    "";
+
   return (
     <div className="min-h-screen" style={{ background: "hsl(40, 40%, 97%)" }}>
       <PortalHeader />
@@ -64,15 +70,15 @@ export default async function EditAnnouncementPage({
 
         <EditAnnouncementForm
           announcement={{
-            id: announcement.id,
-            title: announcement.title,
-            titleArabic: announcement.titleArabic,
-            content: announcement.content,
-            contentArabic: announcement.contentArabic,
-            target: announcement.target,
-            targetId: announcement.targetId,
-            isPublished: announcement.isPublished,
-          }}
+  id: announcement.id,
+  title: announcement.title,
+  content: announcement.content,
+  titleArabic: "",
+  contentArabic: "",
+  target: announcement.target,
+  targetId,
+  isPublished: announcement.isPublished,
+}}
           programmes={programmesList}
           levels={levelsList}
           classes={classesList}

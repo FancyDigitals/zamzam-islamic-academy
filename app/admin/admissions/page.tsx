@@ -103,7 +103,7 @@ export default async function AdminAdmissionsPage() {
                 <p style={{ fontSize: "32px", fontWeight: "800", color: stat.color, letterSpacing: "-0.03em" }}>
                   {stat.value}
                 </p>
-                <p style={{ fontSize: "12px", textTransform: "uppercase", fontWeight: 700, tracking: "0.1em", color: "hsl(0, 0%, 18%)", marginTop: "4px" }}>
+                <p style={{ fontSize: "12px", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.1em", color: "hsl(0, 0%, 18%)", marginTop: "4px" }}>
                   {stat.label}
                 </p>
                 <p className="arabic-text" style={{ fontSize: "12px", color: "hsl(35, 65%, 32%)", marginTop: "2px" }}>

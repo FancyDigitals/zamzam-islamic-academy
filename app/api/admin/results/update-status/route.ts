@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-type ResultStatus = "submitted" | "approved" | "published";
+type ResultStatus = "draft" | "submitted" | "approved" | "published";
 
 const VALID_TRANSITIONS: Record<string, ResultStatus[]> = {
   draft: ["submitted"],
@@ -38,15 +38,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!["submitted", "approved", "published"].includes(newStatus)) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "newStatus must be submitted, approved, or published",
-        },
-        { status: 400 }
-      );
-    }
+    if (!["draft", "submitted", "approved", "published"].includes(newStatus)) {
+  return NextResponse.json(
+    {
+      success: false,
+      error: "newStatus must be draft, submitted, approved, or published",
+    },
+    { status: 400 }
+  );
+}
 
     const { db } = await import("@/lib/db");
     const { results } = await import("@/lib/db/schema");
