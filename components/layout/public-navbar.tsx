@@ -10,9 +10,7 @@ const navLinks = [
   { name: "About", arabic: "من نحن", href: "/about" },
   { name: "Programmes", arabic: "البرامج", href: "/programmes" },
   { name: "Admissions", arabic: "القبول", href: "/admissions" },
-  { name: "Faculty", arabic: "المعلمون", href: "/faculty" },
-  { name: "Events", arabic: "الفعاليات", href: "/events" },
-  { name: "News", arabic: "الأخبار", href: "/news" },
+  { name: "Library", arabic: "المكتبة", href: "/resources" },
   { name: "Contact", arabic: "اتصل بنا", href: "/contact" },
 ];
 
@@ -27,7 +25,6 @@ export function PublicNavbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -44,7 +41,6 @@ export function PublicNavbar() {
     return pathname.startsWith(href);
   };
   
-  // 🔴 ADD THIS ESCAPE ROUTE TO PREVENT PORTAL DOUBLE NAVBARS
   if (
     pathname?.startsWith("/admin") ||
     pathname?.startsWith("/student") ||
@@ -56,9 +52,6 @@ export function PublicNavbar() {
 
   return (
     <>
-      {/* ═════════════════════════════════════════════
-          MAIN NAVBAR — cream, compact, editorial
-          ═════════════════════════════════════════════ */}
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
@@ -74,17 +67,16 @@ export function PublicNavbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[80px]">
 
-            {/* ─── LOGO + WORDMARK ─── */}
-<Link href="/" className="flex items-center gap-3 group shrink-0">
-  <img
-    src="/logo.png"
-    alt="Zamzam Islamic Academy"
-    style={{
-      width: "56px",
-      height: "56px",
-      objectFit: "contain",
-    }}
-  />
+            <Link href="/" className="flex items-center gap-3 group shrink-0">
+              <img
+                src="/logo.png"
+                alt="Zamzam Islamic Academy"
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  objectFit: "contain",
+                }}
+              />
               <div className="hidden sm:flex flex-col leading-none">
                 <span
                   style={{
@@ -112,7 +104,6 @@ export function PublicNavbar() {
               </div>
             </Link>
 
-            {/* ─── DESKTOP NAV ─── */}
             <nav className="hidden lg:flex items-center gap-0.5 mx-auto">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
@@ -130,7 +121,6 @@ export function PublicNavbar() {
                   >
                     <span className="relative">
                       {link.name}
-                      {/* Active underline */}
                       <span
                         className="absolute left-0 right-0 -bottom-1 h-[2px] transition-all"
                         style={{
@@ -145,7 +135,6 @@ export function PublicNavbar() {
               })}
             </nav>
 
-            {/* ─── CTAs (desktop) ─── */}
             <div className="hidden lg:flex items-center gap-2 shrink-0">
               <Link
                 href="/admissions"
@@ -187,7 +176,6 @@ export function PublicNavbar() {
               </Link>
             </div>
 
-            {/* ─── MOBILE MENU BUTTON ─── */}
             <button
               onClick={() => setMobileOpen(true)}
               className="lg:hidden p-2 rounded-md transition-colors"
@@ -199,7 +187,6 @@ export function PublicNavbar() {
           </div>
         </div>
 
-        {/* Subtle gold accent line under navbar */}
         <div
           className="h-[1px] w-full"
           style={{
@@ -211,11 +198,6 @@ export function PublicNavbar() {
         />
       </header>
 
-      {/* ═════════════════════════════════════════════
-          MOBILE MENU — full-screen drawer from right
-          ═════════════════════════════════════════════ */}
-
-      {/* Backdrop */}
       <div
         className="lg:hidden fixed inset-0 z-[60] transition-opacity duration-300"
         style={{
@@ -226,7 +208,6 @@ export function PublicNavbar() {
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* Drawer */}
       <aside
         className="lg:hidden fixed top-0 right-0 bottom-0 z-[70] flex flex-col transition-transform duration-300 ease-out"
         style={{
@@ -236,7 +217,6 @@ export function PublicNavbar() {
           boxShadow: "-8px 0 32px rgba(0, 0, 0, 0.12)",
         }}
       >
-        {/* Drawer header */}
         <div
           className="flex items-center justify-between px-5 py-4"
           style={{ borderBottom: "1px solid hsl(35, 20%, 85%)" }}
@@ -285,7 +265,6 @@ export function PublicNavbar() {
           </button>
         </div>
 
-        {/* Bismillah */}
         <div
           className="px-5 py-3 text-center"
           style={{ background: "hsl(38, 45%, 94%)" }}
@@ -301,7 +280,6 @@ export function PublicNavbar() {
           </span>
         </div>
 
-        {/* Nav links */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           {navLinks.map((link) => {
             const active = isActive(link.href);
@@ -316,7 +294,6 @@ export function PublicNavbar() {
                 }}
               >
                 <div className="flex items-center gap-3">
-                  {/* Active indicator dot */}
                   <span
                     className="w-1.5 h-1.5 rounded-full transition-all"
                     style={{
@@ -352,7 +329,6 @@ export function PublicNavbar() {
           })}
         </nav>
 
-        {/* CTAs */}
         <div
           className="p-4 flex flex-col gap-2"
           style={{
@@ -389,7 +365,6 @@ export function PublicNavbar() {
             <ArrowRight className="w-4 h-4" />
           </Link>
 
-          {/* Footer signature */}
           <p
             className="text-center mt-2 text-xs"
             style={{

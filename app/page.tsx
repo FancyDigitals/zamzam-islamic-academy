@@ -16,7 +16,7 @@ const values = [
     title: "Authentic Islamic Knowledge",
     arabic: "العلم الشرعي",
     description:
-      "We root every aspect of our curriculum in the authentic sources of Islamic knowledge — the Qur'an, the Sunnah, and the scholarly tradition.",
+      "We root every aspect of our curriculum in the authentic sources of Islamic knowledge, the Qur'an, the Sunnah, and the scholarly tradition.",
   },
   {
     icon: Star,
@@ -30,7 +30,7 @@ const values = [
     title: "Academic Discipline",
     arabic: "الانضباط الأكاديمي",
     description:
-      "We believe in the value of structured academic discipline — regular assessment, consistent study, and academic responsibility.",
+      "We believe in the value of structured academic discipline, regular assessment, consistent study, and academic responsibility.",
   },
   {
     icon: Heart,
@@ -517,7 +517,7 @@ export default function HomePage() {
                   lineHeight: 1.6,
                 }}
               >
-                Zamzam Islamic Academy envisions a future where authentic Islamic and Arabic education is accessible, structured, and digitally empowered — producing graduates who are grounded in their deen, fluent in Arabic, and equipped to contribute meaningfully to their communities.
+                Zamzam Islamic Academy envisions a future where authentic Islamic and Arabic education is accessible, structured, and digitally empowered producing graduates who are grounded in their deen, fluent in Arabic, and equipped to contribute meaningfully to their communities.
               </p>
             </div>
 

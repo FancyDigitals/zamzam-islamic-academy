@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Mail, Phone, Clock, Send, Loader2, CheckCircle } from "lucide-react";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  Clock,
+  Send,
+  Loader2,
+  CheckCircle,
+  ArrowRight,
+} from "lucide-react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -27,308 +36,406 @@ export default function ContactPage() {
     setIsLoading(false);
   };
 
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    height: "42px",
-    padding: "0 12px",
-    borderRadius: "8px",
-    border: "1px solid #e2e8f0",
-    fontSize: "14px",
-    outline: "none",
-    background: "white",
-    color: "#0f172a",
-  };
-
-  const labelStyle: React.CSSProperties = {
-    display: "block",
-    fontSize: "13px",
-    fontWeight: "500",
-    color: "#475569",
-    marginBottom: "6px",
-  };
-
   return (
-    <div style={{ minHeight: "100vh", background: "#f8fafc", paddingTop: "64px" }}>
+    <div style={{ minHeight: "100vh", background: "hsl(40, 40%, 97%)" }}>
 
-      {/* Hero */}
-      <div
-        style={{
-          background: "linear-gradient(160deg, hsl(162,72%,8%) 0%, hsl(162,60%,15%) 100%)",
-          padding: "80px 20px",
-          textAlign: "center",
-        }}
-      >
-        <p
-          className="arabic-text"
-          style={{ color: "hsl(162,50%,65%)", fontSize: "22px", marginBottom: "8px" }}
-        >
-          تواصل معنا
-        </p>
-        <h1 style={{ color: "white", fontSize: "44px", fontWeight: "700", marginBottom: "16px" }}>
-          Contact Us
-        </h1>
-        <p style={{ color: "hsl(162,35%,65%)", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: 1.8 }}>
-          We would love to hear from you. Reach out to us for any inquiries about admissions, programmes, or the academy.
-        </p>
-      </div>
-
-      <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "60px 20px" }}>
-
-        {/* Contact Info Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "40px" }}>
-          {[
-            {
-              icon: MapPin,
-              title: "Location",
-              line1: "Nigeria",
-              line2: "West Africa",
-            },
-            {
-              icon: Mail,
-              title: "Email",
-              line1: "info@zamzamacademy.ng",
-              line2: "admissions@zamzamacademy.ng",
-            },
-            {
-              icon: Phone,
-              title: "Phone",
-              line1: "Contact Academy",
-              line2: "Mon - Sat",
-            },
-            {
-              icon: Clock,
-              title: "Office Hours",
-              line1: "Saturday - Thursday",
-              line2: "8:00 AM - 4:00 PM",
-            },
-          ].map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                style={{
-                  background: "white",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  textAlign: "center",
-                }}
-              >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "10px",
-                    background: "hsl(162,40%,94%)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 12px",
-                  }}
-                >
-                  <Icon style={{ width: "20px", height: "20px", color: "hsl(162,55%,28%)" }} />
-                </div>
-                <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a", marginBottom: "6px" }}>
-                  {item.title}
-                </h3>
-                <p style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.6 }}>
-                  {item.line1}
-                  <br />
-                  {item.line2}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Contact Form */}
+      {/* ═══════════════════════════════════════════
+          HERO — Cream with Pattern
+          ═══════════════════════════════════════════ */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
-            background: "white",
-            border: "1px solid #e2e8f0",
-            borderRadius: "16px",
-            padding: "40px",
+            backgroundImage: "url('/pattern.svg')",
+            backgroundSize: "80px 80px",
+            backgroundRepeat: "repeat",
           }}
-        >
-          {success ? (
-            <div style={{ textAlign: "center", padding: "40px 0" }}>
-              <div
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  borderRadius: "50%",
-                  background: "hsl(162,40%,94%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 20px",
-                }}
-              >
-                <CheckCircle style={{ width: "32px", height: "32px", color: "hsl(162,55%,28%)" }} />
-              </div>
-              <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
-                Message Sent!
-              </h2>
-              <p style={{ color: "#64748b", fontSize: "15px", marginBottom: "8px" }}>
-                JazakAllahu Khayran. We have received your message.
-              </p>
-              <p style={{ color: "#94a3b8", fontSize: "14px" }}>
-                The academy will respond to your inquiry as soon as possible.
-              </p>
-              <button
-                onClick={() => {
-                  setSuccess(false);
-                  setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-                }}
-                style={{
-                  marginTop: "24px",
-                  padding: "10px 24px",
-                  borderRadius: "8px",
-                  border: "1px solid #e2e8f0",
-                  background: "white",
-                  color: "#475569",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  cursor: "pointer",
-                }}
-              >
-                Send Another Message
-              </button>
-            </div>
-          ) : (
-            <>
-              <h2 style={{ fontSize: "22px", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
-                Send Us a Message
-              </h2>
-              <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "32px" }}>
-                Fill in the form below and we will get back to you as soon as possible.
-              </p>
+        />
 
-              <form onSubmit={handleSubmit}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
-                  <div>
-                    <label style={labelStyle}>Your Name *</label>
-                    <input
-                      type="text"
-                      value={form.name}
-                      onChange={(e) => updateForm("name", e.target.value)}
-                      placeholder="Full name"
-                      required
-                      style={inputStyle}
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p
+            className="arabic-text mb-3"
+            style={{
+              color: "hsl(35, 65%, 32%)",
+              fontSize: "1.25rem",
+              fontWeight: 500,
+            }}
+          >
+            تواصل معنا
+          </p>
+          <h1
+            className="mb-5"
+            style={{
+              fontSize: "clamp(2.25rem, 4.5vw, 3.25rem)",
+              color: "hsl(0, 0%, 8%)",
+              fontWeight: 800,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.05,
+            }}
+          >
+            Contact the Academy
+          </h1>
+          <p
+            className="text-base max-w-xl mx-auto"
+            style={{
+              color: "hsl(0, 0%, 40%)",
+              letterSpacing: "-0.005em",
+              lineHeight: 1.65,
+            }}
+          >
+            We would love to hear from you. Reach out to us for any inquiries about
+            admissions, programmes, or academic support.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          MAIN CONTENT
+          ═══════════════════════════════════════════ */}
+      <section className="py-12 pb-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Contact Info Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {[
+              {
+                icon: MapPin,
+                title: "Location",
+                line1: "Nigeria",
+                line2: "West Africa",
+              },
+              {
+                icon: Mail,
+                title: "Email",
+                line1: "info@zamzamacademy.ng",
+                line2: "admissions@zamzamacademy.ng",
+              },
+              {
+                icon: Phone,
+                title: "Phone",
+                line1: "Contact Support",
+                line2: "Mon – Sat",
+              },
+              {
+                icon: Clock,
+                title: "Office Hours",
+                line1: "Saturday – Thursday",
+                line2: "8:00 AM – 4:00 PM",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="paper-card rounded-lg p-6 text-center"
+                >
+                  <div
+                    className="w-10 h-10 rounded-md flex items-center justify-center mx-auto mb-3"
+                    style={{ background: "hsl(42, 75%, 88%)" }}
+                  >
+                    <Icon
+                      className="w-5 h-5"
+                      style={{ color: "hsl(35, 65%, 32%)" }}
                     />
                   </div>
-                  <div>
-                    <label style={labelStyle}>Email Address *</label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => updateForm("email", e.target.value)}
-                      placeholder="your@email.com"
-                      required
-                      style={inputStyle}
-                    />
-                  </div>
-                </div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
-                  <div>
-                    <label style={labelStyle}>Phone Number</label>
-                    <input
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => updateForm("phone", e.target.value)}
-                      placeholder="+234 800 000 0000"
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div>
-                    <label style={labelStyle}>Subject *</label>
-                    <select
-                      value={form.subject}
-                      onChange={(e) => updateForm("subject", e.target.value)}
-                      required
-                      style={inputStyle}
-                    >
-                      <option value="">Select subject</option>
-                      <option value="admissions">Admissions Inquiry</option>
-                      <option value="programmes">Programme Information</option>
-                      <option value="academic">Academic Inquiry</option>
-                      <option value="technical">Technical Support</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div style={{ marginBottom: "24px" }}>
-                  <label style={labelStyle}>Your Message *</label>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) => updateForm("message", e.target.value)}
-                    placeholder="Write your message here..."
-                    required
-                    rows={6}
+                  <h3
                     style={{
-                      ...inputStyle,
-                      height: "auto",
-                      padding: "12px",
-                      resize: "vertical",
-                      fontFamily: "inherit",
+                      fontSize: "0.95rem",
+                      fontWeight: 800,
+                      color: "hsl(0, 0%, 8%)",
+                      letterSpacing: "-0.02em",
+                      marginBottom: "4px",
                     }}
-                  />
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-xs"
+                    style={{
+                      color: "hsl(0, 0%, 40%)",
+                      letterSpacing: "-0.005em",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {item.line1}
+                    <br />
+                    {item.line2}
+                  </p>
                 </div>
+              );
+            })}
+          </div>
 
-                <button
-                  type="submit"
-                  disabled={isLoading}
+          {/* Contact Form Card */}
+          <div
+            className="rounded-lg p-6 sm:p-10"
+            style={{
+              background: "hsl(0, 0%, 100%)",
+              border: "1px solid hsl(35, 20%, 85%)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.03)",
+            }}
+          >
+            {success ? (
+              <div className="text-center py-10">
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
+                  style={{ background: "hsl(155, 40%, 32%)" }}
+                >
+                  <CheckCircle className="w-7 h-7 text-white" />
+                </div>
+                <h2
                   style={{
-                    width: "100%",
-                    height: "48px",
-                    borderRadius: "8px",
-                    background: "hsl(162,55%,28%)",
-                    color: "white",
-                    border: "none",
-                    fontSize: "15px",
-                    fontWeight: "600",
-                    cursor: isLoading ? "not-allowed" : "pointer",
-                    opacity: isLoading ? 0.7 : 1,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "8px",
+                    fontSize: "1.75rem",
+                    fontWeight: 800,
+                    color: "hsl(0, 0%, 8%)",
+                    letterSpacing: "-0.03em",
+                    marginBottom: "6px",
                   }}
                 >
-                  {isLoading ? (
-                    <>
-                      <Loader2 style={{ width: "18px", height: "18px", animation: "spin 1s linear infinite" }} />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send style={{ width: "18px", height: "18px" }} />
-                      Send Message
-                    </>
-                  )}
+                  Message Sent!
+                </h2>
+                <p
+                  className="arabic-text text-lg mb-2"
+                  style={{ color: "hsl(35, 65%, 32%)" }}
+                >
+                  جزاكم الله خيراً
+                </p>
+                <p
+                  className="text-sm mb-1"
+                  style={{ color: "hsl(0, 0%, 30%)", letterSpacing: "-0.005em" }}
+                >
+                  JazakAllahu Khayran. We have received your message.
+                </p>
+                <p
+                  className="text-xs mb-8"
+                  style={{ color: "hsl(0, 0%, 50%)", letterSpacing: "-0.005em" }}
+                >
+                  The academy administration will respond to your inquiry as soon as possible.
+                </p>
+                <button
+                  onClick={() => {
+                    setSuccess(false);
+                    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md text-sm font-semibold transition-all"
+                  style={{
+                    border: "1.5px solid hsl(0, 0%, 8%)",
+                    color: "hsl(0, 0%, 8%)",
+                  }}
+                >
+                  Send Another Message
                 </button>
-              </form>
-            </>
-          )}
-        </div>
+              </div>
+            ) : (
+              <>
+                <div className="mb-8">
+                  <h2
+                    style={{
+                      fontSize: "1.5rem",
+                      fontWeight: 800,
+                      color: "hsl(0, 0%, 8%)",
+                      letterSpacing: "-0.03em",
+                      lineHeight: 1.1,
+                      marginBottom: "6px",
+                    }}
+                  >
+                    Send Us a Message
+                  </h2>
+                  <p
+                    className="text-sm"
+                    style={{ color: "hsl(0, 0%, 45%)", letterSpacing: "-0.005em" }}
+                  >
+                    Fill in the form below and our administrative team will respond shortly.
+                  </p>
+                </div>
 
-        {/* Islamic quote */}
-        <div style={{ textAlign: "center", marginTop: "48px" }}>
-          <p
-            className="arabic-text"
-            style={{ fontSize: "22px", color: "hsl(162,55%,30%)", marginBottom: "8px" }}
-          >
-            خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-          </p>
-          <p style={{ color: "#94a3b8", fontSize: "13px", fontStyle: "italic" }}>
-            "The best of people are those who are most beneficial to people."
-            <span style={{ color: "#cbd5e1" }}> — Prophet Muhammad ﷺ</span>
-          </p>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <FormLabel label="Your Name" arabic="الاسم" required />
+                      <input
+                        type="text"
+                        value={form.name}
+                        onChange={(e) => updateForm("name", e.target.value)}
+                        placeholder="Full name"
+                        required
+                        className="form-input-style"
+                      />
+                    </div>
+                    <div>
+                      <FormLabel label="Email Address" arabic="البريد الإلكتروني" required />
+                      <input
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => updateForm("email", e.target.value)}
+                        placeholder="your@email.com"
+                        required
+                        className="form-input-style"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <FormLabel label="Phone Number" arabic="رقم الهاتف" />
+                      <input
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => updateForm("phone", e.target.value)}
+                        placeholder="+234 800 000 0000"
+                        className="form-input-style"
+                      />
+                    </div>
+                    <div>
+                      <FormLabel label="Subject" arabic="الموضوع" required />
+                      <select
+                        value={form.subject}
+                        onChange={(e) => updateForm("subject", e.target.value)}
+                        required
+                        className="form-input-style"
+                      >
+                        <option value="">Select subject</option>
+                        <option value="admissions">Admissions Inquiry</option>
+                        <option value="programmes">Programme Information</option>
+                        <option value="academic">Academic Inquiry</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <FormLabel label="Your Message" arabic="الرسالة" required />
+                    <textarea
+                      value={form.message}
+                      onChange={(e) => updateForm("message", e.target.value)}
+                      placeholder="Write your message here..."
+                      required
+                      rows={5}
+                      className="form-textarea-style"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full h-12 rounded-md text-white font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                    style={{
+                      background: "hsl(0, 0%, 8%)",
+                      fontSize: "0.95rem",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+
+          {/* Islamic Quote */}
+          <div className="text-center mt-16">
+            <p
+              className="arabic-text mb-2"
+              style={{
+                fontSize: "1.5rem",
+                color: "hsl(35, 65%, 32%)",
+                lineHeight: 1.6,
+              }}
+            >
+              خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
+            </p>
+            <p
+              className="text-sm italic mb-0.5"
+              style={{ color: "hsl(0, 0%, 35%)", letterSpacing: "-0.005em" }}
+            >
+              "The best of people are those who are most beneficial to people."
+            </p>
+            <p
+              className="text-xs"
+              style={{ color: "hsl(0, 0%, 50%)", fontWeight: 500 }}
+            >
+              — Prophet Muhammad ﷺ
+            </p>
+          </div>
+
         </div>
-      </div>
+      </section>
+
+      {/* Styled JSX Helper for Input Elements */}
+      <style jsx>{`
+        .form-input-style {
+          width: 100%;
+          height: 44px;
+          padding: 0 14px;
+          border-radius: 6px;
+          border: 1.5px solid hsl(35, 20%, 82%);
+          font-size: 14px;
+          outline: none;
+          background: hsl(40, 40%, 97%);
+          color: hsl(0, 0%, 8%);
+          transition: all 0.2s;
+        }
+        .form-input-style:focus {
+          border-color: hsl(38, 60%, 45%);
+          background: hsl(0, 0%, 100%);
+        }
+        .form-textarea-style {
+          width: 100%;
+          padding: 12px 14px;
+          border-radius: 6px;
+          border: 1.5px solid hsl(35, 20%, 82%);
+          font-size: 14px;
+          outline: none;
+          background: hsl(40, 40%, 97%);
+          color: hsl(0, 0%, 8%);
+          transition: all 0.2s;
+          resize: vertical;
+          font-family: inherit;
+        }
+        .form-textarea-style:focus {
+          border-color: hsl(38, 60%, 45%);
+          background: hsl(0, 0%, 100%);
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function FormLabel({
+  label,
+  arabic,
+  required,
+}: {
+  label: string;
+  arabic: string;
+  required?: boolean;
+}) {
+  return (
+    <div className="flex items-center justify-between mb-2">
+      <label
+        className="block text-xs uppercase font-bold tracking-wider"
+        style={{ color: "hsl(0, 0%, 25%)" }}
+      >
+        {label} {required && <span style={{ color: "hsl(38, 60%, 45%)" }}>*</span>}
+      </label>
+      <span
+        className="arabic-text text-xs"
+        style={{ color: "hsl(35, 65%, 32%)" }}
+      >
+        {arabic}
+      </span>
     </div>
   );
 }

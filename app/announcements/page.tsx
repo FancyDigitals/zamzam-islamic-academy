@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { PortalHeader } from "../../../components/layout/portal-header";
+import { PortalHeader } from "../../components/layout/portal-header";
 
 export const dynamic = "force-dynamic";
 

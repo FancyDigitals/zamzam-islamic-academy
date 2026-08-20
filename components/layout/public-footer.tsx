@@ -233,7 +233,6 @@ export function PublicFooter() {
                 { name: "About Us", href: "/about" },
                 { name: "Faculty", href: "/faculty" },
                 { name: "Resources", href: "/resources" },
-                { name: "News", href: "/news" },
                 { name: "Events", href: "/events" },
               ].map((item) => (
                 <li key={item.name}>
