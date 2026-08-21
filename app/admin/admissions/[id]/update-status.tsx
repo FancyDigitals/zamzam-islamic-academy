@@ -102,7 +102,7 @@ export function UpdateStatusClient({
 
   const copyCredentials = () => {
     if (!convertResult) return;
-    const text = `Zamzam Islamic Academy — Student Portal\nStudent ID: ${convertResult.studentId}\nEmail: ${convertResult.email}\nTemporary Password: ${convertResult.temporaryPassword}\nLogin: /login`;
+    const text = `Zamzam College of Islamic and Arabic Studies — Student Portal\nStudent ID: ${convertResult.studentId}\nEmail: ${convertResult.email}\nTemporary Password: ${convertResult.temporaryPassword}\nLogin: /login`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
   title: {
-    default: "Zamzam Islamic Academy",
-    template: "%s | Zamzam Islamic Academy",
+    default: "Zamzam College of Islamic and Arabic Studies",
+    template: "%s | Zamzam College of Islamic and Arabic Studies",
   },
   description:
     "A modern Islamic and Arabic education platform rooted in authentic knowledge. Providing structured Idadiyyah and Thanawiyyah programmes for students in Nigeria.",
@@ -29,13 +29,14 @@ export const metadata: Metadata = {
     "Islamic education",
     "Arabic language",
     "Zamzam Islamic Academy",
+    "Zamzam College of Islamic and Arabic Studies",
   ],
-  authors: [{ name: "Zamzam Islamic Academy" }],
+  authors: [{ name: "Zamzam College of Islamic and Arabic Studies" }],
   openGraph: {
     type: "website",
     locale: "en_NG",
-    siteName: "Zamzam Islamic Academy",
-    title: "Zamzam Islamic Academy",
+    siteName: "Zamzam College of Islamic and Arabic Studies",
+    title: "Zamzam College of Islamic and Arabic Studies",
     description:
       "A modern Islamic and Arabic education platform rooted in authentic knowledge.",
     images: ["/logo.png"],

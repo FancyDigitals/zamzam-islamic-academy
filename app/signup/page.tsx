@@ -156,7 +156,7 @@ export default function SignupPage() {
 
             <img
               src="/logo.png"
-              alt="Zamzam Islamic Academy"
+              alt="Zamzam College of Islamic and Arabic Studies"
               style={{
                 width: "56px",
                 height: "56px",
@@ -318,7 +318,7 @@ export default function SignupPage() {
           <Link href="/" className="inline-block mb-5">
             <img
               src="/logo.png"
-              alt="Zamzam Islamic Academy"
+              alt="Zamzam College of Islamic and Arabic Studies"
               style={{
                 width: "72px",
                 height: "72px",
@@ -355,7 +355,7 @@ export default function SignupPage() {
             className="text-sm"
             style={{ color: "hsl(0, 0%, 45%)", letterSpacing: "-0.005em" }}
           >
-            Join Zamzam Islamic Academy
+            Join Zamzam College of Islamic and Arabic Studies
           </p>
         </div>
 

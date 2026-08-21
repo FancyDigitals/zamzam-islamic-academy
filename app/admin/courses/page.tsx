@@ -76,7 +76,7 @@ export default async function AdminCoursesPage() {
             <GraduationCap className="w-5 h-5 text-white" />
           </div>
           <div>
-            <p className="text-sm font-semibold text-gray-900">Zamzam Islamic Academy</p>
+            <p className="text-sm font-semibold text-gray-900">Zamzam College of Islamic and Arabic Studies</p>
             <p className="text-xs text-gray-500">Admin Panel / لوحة الإدارة</p>
           </div>
         </div>

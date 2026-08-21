@@ -7,7 +7,7 @@ const upcomingEvents = [
     arabic: "التوجيه للعام الدراسي الجديد",
     date: "September 2026",
     time: "9:00 AM - 12:00 PM",
-    location: "Zamzam Islamic Academy Campus",
+    location: "Zamzam College Campus",
     description: "Orientation programme for all new and returning students. Parents and guardians are welcome to attend.",
     audience: "All Students & Parents",
     type: "Academic",
@@ -99,7 +99,7 @@ export default function EventsPage() {
           Events
         </h1>
         <p style={{ color: "hsl(162,35%,65%)", fontSize: "18px", maxWidth: "700px", margin: "0 auto", lineHeight: 1.8 }}>
-          Academic events, Islamic programmes, examinations, and community activities at Zamzam Islamic Academy.
+          Academic events, Islamic programmes, examinations, and community activities at Zamzam College of Islamic and Arabic Studies.
         </p>
       </div>
 

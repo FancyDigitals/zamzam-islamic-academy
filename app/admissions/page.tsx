@@ -19,8 +19,8 @@ async function getProgrammes() {
 }
 
 export const metadata = {
-  title: "Admissions | Apply to Zamzam Islamic Academy",
-  description: "Apply for admission to Zamzam Islamic Academy's structured Arabic and Islamic programmes.",
+  title: "Admissions | Apply to Zamzam College of Islamic and Arabic Studies",
+  description: "Apply for admission to Zamzam college's structured Arabic and Islamic programmes.",
 };
 
 export default async function AdmissionsPage() {

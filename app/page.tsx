@@ -117,7 +117,7 @@ export default function HomePage() {
             <div className="flex justify-center mb-10">
               <img
                 src="/logo.png"
-                alt="Zamzam Islamic Academy"
+                alt="Zamzam College of Islamic and Arabic Studies"
                 style={{ width: "130px", height: "150px" }}
               />
             </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
               Zamzam
               <br />
               <span className="text-gradient-gold" style={{ fontWeight: 900 }}>
-                Islamic Academy
+                Zamzam College of Islamic and Arabic Studies
               </span>
             </h1>
 
@@ -416,7 +416,7 @@ export default function HomePage() {
                 lineHeight: 1.55,
               }}
             >
-              The principles that guide every aspect of education at Zamzam Islamic Academy.
+              The principles that guide every aspect of education at Zamzam College of Islamic and Arabic Studies.
             </p>
           </div>
 
@@ -517,7 +517,7 @@ export default function HomePage() {
                   lineHeight: 1.6,
                 }}
               >
-                Zamzam Islamic Academy envisions a future where authentic Islamic and Arabic education is accessible, structured, and digitally empowered producing graduates who are grounded in their deen, fluent in Arabic, and equipped to contribute meaningfully to their communities.
+                Zamzam College of Islamic and Arabic Studies envisions a future where authentic Islamic and Arabic education is accessible, structured, and digitally empowered producing graduates who are grounded in their deen, fluent in Arabic, and equipped to contribute meaningfully to their communities.
               </p>
             </div>
 
@@ -632,7 +632,7 @@ export default function HomePage() {
               lineHeight: 1.55,
             }}
           >
-            Join Zamzam Islamic Academy and embark on a structured path of Islamic and Arabic education designed for academic excellence and spiritual growth.
+            Join Zamzam College of Islamic and Arabic Studies and embark on a structured path of Islamic and Arabic education designed for academic excellence and spiritual growth.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

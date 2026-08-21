@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Programmes | Zamzam Islamic Academy",
+  title: "Programmes | Zamzam College of Islamic and Arabic Studies",
   description:
-    "Explore Idadiyyah and Thanawiyyah — structured Islamic and Arabic programmes at Zamzam Islamic Academy.",
+    "Explore Idadiyyah and Thanawiyyah — structured Islamic and Arabic programmes at Zamzam College Of Islamic And Arabic Studies.",
 };
 
 const programmes = [

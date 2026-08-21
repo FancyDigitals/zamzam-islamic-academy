@@ -105,7 +105,7 @@ export function PortalHeader({
             className="text-xs sm:text-sm font-black uppercase tracking-tight leading-none"
             style={{ color: "hsl(0, 0%, 8%)", letterSpacing: "-0.01em" }}
           >
-            ZAMZAM ISLAMIC ACADEMY
+            ZAMZAM COLLEGE OF ISLAMIC AND ARABIC STUDIES
           </p>
           <p
             className="text-[10px] sm:text-xs mt-1 leading-none font-bold"

@@ -317,7 +317,7 @@ export default function HomePage() {
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               The principles that guide every aspect of education at
-              Zamzam Islamic Academy.
+              Zamzam College Of Islamic And Arabic Studies
             </p>
           </div>
 
@@ -387,7 +387,7 @@ export default function HomePage() {
                 academic institutions.
               </h2>
               <p className="text-emerald-300 leading-relaxed mb-4">
-                Zamzam Islamic Academy envisions a future where authentic
+                Zamzam College Of Islamic And Arabic Studies envisions a future where authentic
                 Islamic and Arabic education is accessible, structured,
                 and digitally empowered — producing graduates who are
                 grounded in their deen, fluent in Arabic, and equipped
@@ -451,7 +451,7 @@ export default function HomePage() {
             Begin Your Academic Journey
           </h2>
           <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
-            Join Zamzam Islamic Academy and embark on a structured path
+            Join Zamzam College Of Islamic And Arabic Studies and embark on a structured path
             of Islamic and Arabic education designed for academic
             excellence and spiritual growth.
           </p>

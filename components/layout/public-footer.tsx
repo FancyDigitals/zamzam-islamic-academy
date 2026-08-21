@@ -23,7 +23,7 @@ export function PublicFooter() {
               <div className="flex items-start gap-4 mb-5">
                 <img
                   src="/logo.png"
-                  alt="Zamzam Islamic Academy"
+                  alt="Zamzam College of Islamic and Arabic Studies"
                   style={{
                     width: "72px",
                     height: "72px",
@@ -41,7 +41,7 @@ export function PublicFooter() {
                       lineHeight: 1.1,
                     }}
                   >
-                    ZAMZAM ISLAMIC ACADEMY
+                    Zamzam College of Islamic and Arabic Studies
                   </h2>
                   <p
                     className="arabic-text mt-1"
@@ -394,7 +394,7 @@ export function PublicFooter() {
               letterSpacing: "-0.005em",
             }}
           >
-            © {year} Zamzam Islamic Academy. All rights reserved.
+            © {year} Zamzam College of Islamic and Arabic Studies. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">

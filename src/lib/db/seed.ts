@@ -214,7 +214,7 @@ async function seed() {
         key: "about_intro",
         title: "About Zamzam Islamic Academy",
         content:
-          "Zamzam Islamic Academy is a structured Islamic and Arabic educational institution committed to producing students of authentic knowledge, strong character, and academic discipline. We combine the rigour of traditional Islamic scholarship with the accessibility of modern educational tools.",
+          "Zamzam College Of Islamic And Arabic Studies is a structured Islamic and Arabic educational institution committed to producing students of authentic knowledge, strong character, and academic discipline. We combine the rigour of traditional Islamic scholarship with the accessibility of modern educational tools.",
         isPublished: true,
       },
       {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Book, Download, Eye, Search, BookOpen, FileText } from "lucide-react";
 
 export const metadata = {
-  title: "Digital Library | Zamzam Islamic Academy",
+  title: "Digital Library | Zamzam College Of Islamic And Arabic Studies",
   description:
     "Explore classical Turas, academic resources, and publications by As-Sheikh (Dr.) Muneerudeen Salahudeen (AR-RIYAADY).",
 };

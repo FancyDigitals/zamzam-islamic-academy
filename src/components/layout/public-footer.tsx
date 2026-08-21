@@ -63,7 +63,7 @@ export function PublicFooter() {
                       lineHeight: 1.1,
                     }}
                   >
-                    ZAMZAM ISLAMIC ACADEMY
+                    ZAMZAM COLLEGE OF ISLAMIC AND ARABIC STUDIES
                   </h2>
                   <p
                     className="arabic-text mt-1"
@@ -426,7 +426,7 @@ export function PublicFooter() {
               letterSpacing: "-0.005em",
             }}
           >
-            © {year} Zamzam Islamic Academy. All rights reserved.
+            © {year} Zamzam College Of Islamic And Arabic Studies. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">

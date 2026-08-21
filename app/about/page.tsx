@@ -11,9 +11,9 @@ import {
 import Link from "next/link";
 
 export const metadata = {
-  title: "About | Zamzam Islamic Academy",
+  title: "About | Zamzam College of Islamic and Arabic Studies",
   description:
-    "Learn about Zamzam Islamic Academy, our vision, mission, Mudir, philosophy, and values.",
+    "Learn about Zamzam College of Islamic and Arabic Studies, our vision, mission, Mudir, philosophy, and values.",
 };
 
 export default function AboutPage() {
@@ -52,7 +52,7 @@ export default function AboutPage() {
               lineHeight: 1.05,
             }}
           >
-            About Zamzam Islamic Academy
+            About Zamzam College of Islamic and Arabic Studies
           </h1>
           <p
             className="text-base max-w-2xl mx-auto"
@@ -104,7 +104,7 @@ export default function AboutPage() {
                 lineHeight: 1.75,
               }}
             >
-              Zamzam Islamic Academy is a structured Islamic and Arabic educational
+              Zamzam College of Islamic and Arabic Studies is a structured Islamic and Arabic educational
               institution based in Nigeria. We are dedicated to providing quality
               Islamic education that combines the rigour of traditional Islamic
               scholarship with the accessibility and sophistication of modern
@@ -196,7 +196,7 @@ export default function AboutPage() {
               >
                 <img
                   src="/mudir.jpg"
-                  alt="As-Sheikh (Dr.) Muneerudeen Salahudeen (AR-RIYAADY) — Mudir of Zamzam Islamic Academy"
+                  alt="As-Sheikh (Dr.) Muneerudeen Salahudeen (AR-RIYAADY) — Mudir of Zamzam College of Islamic and Arabic Studies"
                   className="w-full h-full object-cover absolute inset-0"
                   style={{
                     objectPosition: "center top",
@@ -263,10 +263,11 @@ export default function AboutPage() {
                     lineHeight: 1.7,
                   }}
                 >
-                  The Mudir of Zamzam Islamic Academy provides spiritual and academic
-                  leadership for the institution. Under his guidance, the academy
-                  upholds authentic Islamic scholarship, structured Arabic education,
-                  and the formation of students of knowledge and character.
+                  The Mudir of Zamzam College of Islamic and Arabic Studies
+                  provides spiritual and academic leadership for the institution. 
+                  Under his guidance, the academy upholds authentic Islamic scholarship,
+                  structured Arabic education, and the formation of students of
+                  knowledge and character.
                 </p>
 
                 <p
@@ -318,7 +319,7 @@ export default function AboutPage() {
             }}
           >
             The Mudir oversees the academic direction, scholarly standards, and
-            overall mission of Zamzam Islamic Academy.
+            overall mission of Zamzam College of Islamic and Arabic Studies.
           </p>
         </div>
       </section>

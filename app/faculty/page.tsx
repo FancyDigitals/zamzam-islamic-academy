@@ -2,9 +2,9 @@ import { BookOpen, Award, GraduationCap, Mail } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Faculty | Zamzam Islamic Academy",
+  title: "Faculty | Zamzam College of Islamic and Arabic Studies",
   description:
-    "Meet the qualified Islamic scholars and Arabic language specialists at Zamzam Islamic Academy.",
+    "Meet the qualified Islamic scholars and Arabic language specialists at Zamzam College of Islamic and Arabic Studies.",
 };
 
 const faculty = [
@@ -392,7 +392,7 @@ export default function FacultyPage() {
               lineHeight: 1.65,
             }}
           >
-            Zamzam Islamic Academy is always looking for qualified Islamic scholars and
+            Zamzam College is always looking for qualified Islamic scholars and
             Arabic language instructors who share our commitment to authentic, structured education.
           </p>
           <a

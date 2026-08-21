@@ -212,7 +212,7 @@ export default async function AdminResultsPage() {
           </div>
           <div>
             <p className="text-sm font-semibold text-gray-900">
-              Zamzam Islamic Academy
+              Zamzam College of Islamic and Arabic Studies
             </p>
             <p className="text-xs text-gray-500">Admin Panel / لوحة الإدارة</p>
           </div>
