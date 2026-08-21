@@ -237,7 +237,7 @@ async function seed() {
   console.log("✅ Database seeded successfully!");
   console.log("");
   console.log("🔑 Admin credentials:");
-  console.log("   Email: admin@zamzamacademy.ng"); 
+  console.log("   Email: admin@zamzamacademy.ng");
   console.log("   Password: ZamzamAdmin2026!");
   console.log("");
   console.log("⚠️  Change the admin password immediately after first login!");
